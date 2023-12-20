@@ -1,7 +1,7 @@
-package com.example.userservice.controller;
+package com.example.bookservice.controller;
 
-import com.example.userservice.model.Book;
-import com.example.userservice.service.ClientService;
+import com.example.bookservice.model.Book;
+import com.example.bookservice.service.BookService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/books")
 @AllArgsConstructor
-@RequestMapping("/api/client")
-public class ServiceBookController {
+public class BookRestController {
 
-private final ClientService clientService;
+    private final BookService bookService;
 
-    @GetMapping("/books")
+    @GetMapping
     public List<Book> getAllBooks(){
-       return clientService.getAllBooks();
+        return bookService.getAllBooks();
     }
 
 }
